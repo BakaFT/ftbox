@@ -1,0 +1,6 @@
+format-code.sh
+tests
+.vscode
+build
+sandbox.log
+debug.log
