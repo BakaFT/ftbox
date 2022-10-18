@@ -31,7 +31,7 @@ With is you can run a guest executable and:
 $ sudo apt-get install libseccomp-dev libseccomp2 seccomp
 ```
 
-- On CentOS&REHL:
+- On CentOS&RHEL:
 
 ```bash
 $ sudo yum -y install libseccomp
