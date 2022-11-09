@@ -2,7 +2,7 @@
 
 This is a sandbox running on Linux. It's based on `seccomp`,`setrlimit` APIs.
 
-With is you can run a guest executable and:
+With this you can run a guest executable and:
 
 - Use seccomp rule to control guest's system calls
 - Limit resources
