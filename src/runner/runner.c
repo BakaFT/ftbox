@@ -25,14 +25,6 @@ void CheckPrivilegeAndConfig(RunConfig* config, RunResult* result)
 
 void ChildProcess(RunConfig* config, RunResult* result)
 {
-    SetTimerLimit(config, result);
-
-    LoadSeccompRule(config, result);
-    SetUser(config, result);
-    // must put this function after all others, cause if RLIMIT_FSIZE is set, then
-    // writing to LOG will get SIGXFSZ
-    // TODO: fix this bug if necessary
-    SetResourceLimit(config, result);
     // Redirect IO
     FILE *input_file = NULL, *output_file = NULL;
     if (config->input_path != NULL) {
@@ -58,6 +50,14 @@ void ChildProcess(RunConfig* config, RunResult* result)
         }
     }
 
+    SetTimerLimit(config, result);
+
+    LoadSeccompRule(config, result);
+    SetUser(config, result);
+    // must put this function after all others, cause if RLIMIT_FSIZE is set, then
+    // writing to LOG will get SIGXFSZ
+    // TODO: fix this bug if necessary
+    SetResourceLimit(config, result);
     // ready to go
     if (execve(config->exe_path, config->exe_args, config->exe_envs) == -1) {
         SANDBOX_ERROR_EXIT(EXECVE_FAILED)
