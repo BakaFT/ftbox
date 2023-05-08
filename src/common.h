@@ -35,7 +35,7 @@ typedef struct {
     int signal; /* 0 if not killed by signal */
     int exit_code; /* exit code of process */
     int error; /* one of SandboxExitCode */
-    int result; /* one of ChildResultCode */
+    int result; /* one of JudgeResultCode */
 } RunResult;
 
 typedef enum {
