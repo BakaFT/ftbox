@@ -116,6 +116,9 @@ error_t parse_opt(int key, char *arg, struct argp_state *state)
     case 'o':
         config->output_path = arg;
         break;
+    case 't':
+        config->test_output_path = arg;
+        break;
     case 'l':
         config->log_path = arg;
         break;
@@ -221,6 +224,7 @@ void InitConfig(int argc, char **argv, RunConfig *config)
     config->exe_envs[0] = NULL;
     config->input_path = NULL;
     config->output_path = NULL;
+    config->test_output_path = NULL;
     config->log_path = NULL;
     config->seccomp_rule = "general";
 

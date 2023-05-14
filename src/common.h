@@ -20,6 +20,7 @@ typedef struct {
     char** exe_envs;
     char* input_path;
     char* output_path;
+    char* test_output_path;
     char* log_path;
     char* seccomp_rule;
 
@@ -56,7 +57,6 @@ typedef enum {
 } SandboxExitCode;
 
 typedef enum {
-    // This will never be given by sandbox, just for consistency
     ACCEPTED = 0,
     CPU_TIME_LIMIT_EXCEEDED = 1,
     REAL_TIME_LIMIT_EXCEEDED = 2,
@@ -64,7 +64,6 @@ typedef enum {
     STACK_LIMIT_EXCEEDED = 4,
     OUTPUT_LIMIT_EXCEEDED = 5,
     RUNTIME_ERROR = 6,
-    // This will never be given by sandbox, just for consistency
     WRONG_ANSWER = 7,
 } JudgeResultCode;
 

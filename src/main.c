@@ -24,6 +24,21 @@ int main(int argc, char** argv)
     INITIALIZE_LOGGER(DEBUG)
     ParseCommandline(argc, argv, config);
     Run(config, result);
+
+    // use diff to compare output
+    if (config->test_output_path != NULL) {
+        char* cmd = malloc(MAX_PATH_LEN);
+        sprintf(cmd, "diff %s %s", config->output_path, config->test_output_path);
+        int ret = system(cmd);
+        if (ret == 0) {
+            result->result = ACCEPTED;
+        }
+        else {
+            result->result = WRONG_ANSWER;
+        }
+        free(cmd);
+    }
+
     printf("{\"cpu_time\":%lu,\"real_time\":%lu,\"memory\":%lu,\"signal\":%d,"
            "\"exit_code\":%d,\"error\":%d,\"result\":%d}\n",
         result->cpu_time, result->real_time, result->memory, result->signal,
