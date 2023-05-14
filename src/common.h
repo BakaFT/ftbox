@@ -62,9 +62,8 @@ typedef enum {
     STACK_LIMIT_EXCEEDED = 4,
     OUTPUT_LIMIT_EXCEEDED = 5,
     RUNTIME_ERROR = 6,
-    BAD_SYSCALL = 7,
     // This will never be given by sandbox, just for consistency
-    WRONG_ANSWER = 8,
+    WRONG_ANSWER = 7,
 } JudgeResultCode;
 
 typedef struct {

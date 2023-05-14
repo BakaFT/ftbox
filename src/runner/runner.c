@@ -97,7 +97,7 @@ void SignalHandler(RunConfig* config, RunResult* result, int* status)
         break;
     case SIGSYS:
         // SIGSYS is triggered by seccomp(SCMP_ACT_KILL) or illegal syscalls
-        JUDGE_RESULT(BAD_SYSCALL)
+        JUDGE_RESULT(RUNTIME_ERROR)
         break;
     case SIGSEGV:
         if (LIMITED(config->max_memory) && result->memory > config->max_memory) {
