@@ -27,7 +27,8 @@ int main(int argc, char** argv)
 
     // use diff to compare output 
     // only when the program is accepted on the run and test_output_path is not NULL
-    if (config->test_output_path != NULL && result->result == ACCEPTED) {
+    // AND THE SANDBOX IS WORKING WELL
+    if (config->test_output_path != NULL && result->result == ACCEPTED && result->error == SUCCESS) {
         char* cmd = malloc(MAX_PATH_LEN);
         sprintf(cmd, "diff %s %s>/dev/null", config->output_path, config->test_output_path);
         int ret = system(cmd);
