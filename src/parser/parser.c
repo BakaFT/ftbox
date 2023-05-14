@@ -16,6 +16,7 @@ struct argp_option options[] = {
     {"input_path", 'i', "PATH", OPTION_ARG_OPTIONAL, "Path to the input file"},
     {"output_path", 'o', "PATH", OPTION_ARG_OPTIONAL,
      "Path to the output file"},
+    {"test_output_path", 'd', "PATH", OPTION_ARG_OPTIONAL,"Path to the test output file"},
     {"log_path", 'l', "PATH", OPTION_ARG_OPTIONAL,
      "Path to the log file (default: $cwd/sandbox.log)"},
     {"seccomp_rule", 'r', "RULE", OPTION_ARG_OPTIONAL,
@@ -116,7 +117,7 @@ error_t parse_opt(int key, char *arg, struct argp_state *state)
     case 'o':
         config->output_path = arg;
         break;
-    case 't':
+    case 'd':
         config->test_output_path = arg;
         break;
     case 'l':

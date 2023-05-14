@@ -25,10 +25,11 @@ int main(int argc, char** argv)
     ParseCommandline(argc, argv, config);
     Run(config, result);
 
-    // use diff to compare output
-    if (config->test_output_path != NULL) {
+    // use diff to compare output 
+    // only when the program is accepted on the run and test_output_path is not NULL
+    if (config->test_output_path != NULL && result->result == ACCEPTED) {
         char* cmd = malloc(MAX_PATH_LEN);
-        sprintf(cmd, "diff %s %s", config->output_path, config->test_output_path);
+        sprintf(cmd, "diff %s %s>/dev/null", config->output_path, config->test_output_path);
         int ret = system(cmd);
         if (ret == 0) {
             result->result = ACCEPTED;
