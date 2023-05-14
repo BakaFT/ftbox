@@ -39,23 +39,25 @@ typedef struct {
 } RunResult;
 
 typedef enum {
-    SUCCESS, /* everything is ok */
-    INVALID_CONFIG, /* invalied config */
-    FORK_FAILED, /* run fork() failed */
-    PTHREAD_FAILED, /* run child thread failed */
-    WAIT_FAILED, /* run wait4() failed */
-    DUP2_FAILED, /* run dup2() failed */
-    SETITIMER_FAILED, /* run setitimer() failed */
-    SETRLIMIT_FAILED, /* run setrlimit() failed */
-    SETUID_FAILED, /* run setuid() failed */
-    SETGID_FAILED, /* run setgid() failed */
-    FILE_DESCRIPTOR_IS_NULL, /* file descriptor is null */
-    LOAD_SECCOMP_FAILED, /* load seccomp rules failed */
-    EXECVE_FAILED, /* run execve() failed */
-    ROOT_REQUIRED, /* sandbox needs root privilege */
+    SUCCESS = 0,
+    INVALID_CONFIG = 1,
+    FORK_FAILED = 2,
+    PTHREAD_FAILED = 3,
+    WAIT_FAILED = 4,
+    DUP2_FAILED = 5,
+    SETITIMER_FAILED = 6,
+    SETRLIMIT_FAILED = 7,
+    SETUID_FAILED = 8,
+    SETGID_FAILED = 9,
+    FILE_DESCRIPTOR_IS_NULL = 10,
+    LOAD_SECCOMP_FAILED = 11,
+    EXECVE_FAILED = 12,
+    ROOT_REQUIRED = 13,
 } SandboxExitCode;
 
 typedef enum {
+    // This will never be given by sandbox, just for consistency
+    ACCEPTED = 0,
     CPU_TIME_LIMIT_EXCEEDED = 1,
     REAL_TIME_LIMIT_EXCEEDED = 2,
     MEMORY_LIMIT_EXCEEDED = 3,
