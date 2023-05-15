@@ -74,4 +74,4 @@ int _general_rule(RunConfig *config)
 
 int general(RunConfig *config) { return _general_rule(config); }
 
-reflect(general)
+reflect(register_rule)

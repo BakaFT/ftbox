@@ -61,6 +61,6 @@ int _c_cpp_rule(RunConfig* config, int allow_write_file)
 }
 
 int c_cpp(RunConfig* config) { return _c_cpp_rule(config, 0); }
-
 int c_cpp_with_io(RunConfig* config) { return _c_cpp_rule(config, 1); }
-reflect(c_cpp_with_io) reflect(c_cpp)
+register_rule(c_cpp_with_io) 
+register_rule(c_cpp)

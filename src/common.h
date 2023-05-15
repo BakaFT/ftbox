@@ -77,7 +77,7 @@ struct rule {
     const char* rule_name;
 };
 
-#define reflect(x) \
+#define register_rule(x) \
     __attribute__((section("rules"))) struct rule __##x = { x, #x };
 
 #define SANDBOX_ERROR_EXIT(x)                            \

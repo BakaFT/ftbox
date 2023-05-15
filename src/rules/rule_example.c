@@ -23,5 +23,5 @@ int _example_rule(RunConfig* config)
 
 int example(RunConfig* config) { return _example_rule(config); }
 
-// Remember to use reflect() to register your rule
-reflect(example)
+// Remember to use register_rule() to register your rule
+register_rule(example)
