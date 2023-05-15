@@ -139,7 +139,7 @@ void GenerateResult(pid_t child, int* status, RunConfig* config,
 
     result->exit_code = WEXITSTATUS(*status);
     result->cpu_time = (uint32_t)(usage->ru_utime.tv_sec * 1000 + usage->ru_utime.tv_usec / 1000);
-    result->memory = (uint64_t)(usage->ru_maxrss * 1024);
+    result->memory = (uint64_t)(usage->ru_maxrss);
     // handle judge result
     if (result->exit_code != 0) {
         JUDGE_RESULT(RUNTIME_ERROR)
