@@ -65,6 +65,8 @@ typedef enum {
     OUTPUT_LIMIT_EXCEEDED = 5,
     RUNTIME_ERROR = 6,
     WRONG_ANSWER = 7,
+    // below are not used in sandbox
+    COMPILE_ERROR = 8,
 } JudgeResultCode;
 
 typedef struct {
