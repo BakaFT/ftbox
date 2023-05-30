@@ -34,7 +34,7 @@ int main(int argc, char **argv)
         if (config->test_output_path != NULL && result->error == SUCCESS)
         {
             char *cmd = malloc(MAX_PATH_LEN);
-            sprintf(cmd, "diff %s %s>/dev/null", config->output_path, config->test_output_path);
+            sprintf(cmd, "diff -Z %s %s>/dev/null", config->output_path, config->test_output_path);
             int ret = system(cmd);
             if (ret == 0)
             {
